@@ -10,6 +10,17 @@
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'edu.sc.seis.gradle:launch4j:2.4.6'
+  }
+}
+
+apply plugin: "edu.sc.seis.launch4j"
+
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use 'jcenter' for resolving your dependencies.
@@ -28,3 +39,8 @@ dependencies {
     // 'test.useTestNG()' to your build script.
     testCompile 'junit:junit:4.11'
 }
+
+launch4j {
+  mainClassName = 'SwingDemo'
+}
+
